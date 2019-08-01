@@ -5,24 +5,29 @@
 <div class="ui placeholder segment">
   <div class="ui two column very relaxed stackable grid">
     <div class="column">
-      <div class="ui form">
-        <div class="field">
-          <label>Username</label>
-          <div class="ui left icon input">
-            <input type="text" placeholder="Username">
+      <%= form_for(:session, url: login_path) do |f| %>
+        <div class="ui form">
+          <div class="field">
+          <%= f.label :username ,class:"field" %>
+            <div class="ui left icon input">
+            <%= f.text_field :username,class:"input",placeholder:"Enter your username",autofocus:true  %>
             <i class="user icon"></i>
-          </div>
+            </div>
+         </div>
+
+         <div class="field">
+         <%= f.label :password ,class:"" %>
+           <div class="ui left icon input">
+           <%= f.password_field :password,class:"input",placeholder:"Enter your password",autofocus:true  %>
+           <i class="lock icon"></i>
+           </div>
+         </div>
+         <div>
+         <%= f.submit "Log in",class:"ui blue submit button"%>
+         </div>
         </div>
-        <div class="field">
-          <label>Password</label>
-          <div class="ui left icon input">
-            <input type="password">
-            <i class="lock icon"></i>
-          </div>
-        </div>
-        <div class="ui blue submit button">Login</div>
+      <% end %>
       </div>
-    </div>
     <div class="middle aligned column">
       <div class="ui big orange button">
         <i class="signup inverted icon"></i>
@@ -30,6 +35,7 @@
       </div>
     </div>
   </div>
+
   <div class="ui vertical divider">
     Or
   </div>
